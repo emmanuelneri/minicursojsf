@@ -1,0 +1,15 @@
+.project
+.classpath
+.settings
+.springBeans
+.metadata
+.idea
+.externalToolBuilders
+rebel.xml
+target
+test-output
+*.iml
+.idea/*
+!.idea/codeStyleSettings.xml
+!.idea/encodings.xml
+nb-configuration.xml
