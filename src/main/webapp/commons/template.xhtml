@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <title>Mini curso JSF</title>
+    </h:head>
+
+    <h:body>
+        <h1>Mini Curso JSF</h1>
+        
+        <h:form>
+            <ul>
+                <li><h:commandLink value="Home" action="index.xhtml?faces-redirect=true" /></li>
+                <li><h:commandLink value="Sair" action="login.xhtml?faces-redirect=true" /></li>
+            </ul>
+        </h:form>
+        
+        <h3 style="color: blue">
+            <ui:insert name="titulo" />
+        </h3>
+        
+        <ui:insert name="conteudo" /> 
+    </h:body>
+
+</html>
