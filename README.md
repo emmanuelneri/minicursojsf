@@ -11,8 +11,7 @@
 - Primefaces 5.1
 
 # Utilização
-
-1 - Baixar projeto;
-2 - Rodar mvn clean install;
-3 - Adicionar tomcat na IDE;
-4 - Fazer deploy do war.
+- Baixar projeto;
+- Rodar mvn clean install;
+- Adicionar tomcat na IDE;
+- Fazer deploy do war.
