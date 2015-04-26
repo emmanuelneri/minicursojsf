@@ -7,22 +7,16 @@
     </h:head>
 
     <h:body>
-        <h1>Login</h1>
+        <h1>Esqueci minha senha</h1>
         
-        <h:form>  
+        <h:form>            
             <h:panelGrid columns="2">
                 <h:outputLabel value="Email: " />
-                <h:inputText value="#{loginController.email}" 
+                <h:inputText value="#{esqueciMinhaSenhaController.email}" 
                              required="true" requiredMessage="Email é obrigatório"/>
-                
-                <h:outputLabel value="Senha: " />
-                <h:inputSecret value="#{loginController.senha}" 
-                               required="true" requiredMessage="Senha é obrigatório"/>
             </h:panelGrid>
             
-            <h:commandButton value="Logar" action="#{loginController.logar}" />
-            <h:commandButton value="Esqueci Minha Senha" immediate="true"
-                             action="esqueci-minha-senha.xhtml?faces-redirect=true" />
+            <h:commandButton value="Enviar" action="#{esqueciMinhaSenhaController.enviar}" />
         </h:form>
         
     </h:body>
