@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/commons/template.xhtml">
+    
+    <ui:define name="titulo">Produtos</ui:define>
+
+    <ui:define name="conteudo">
+        <h:dataTable value="#{produtoController.produtos}" var="produto">
+            <h:column>
+                <f:facet name="header">Código</f:facet>
+                #{produto.codigo}
+            </h:column>
+            
+             <h:column>
+                <f:facet name="header">Nome</f:facet>
+                #{produto.nome}
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+
+</ui:composition>
