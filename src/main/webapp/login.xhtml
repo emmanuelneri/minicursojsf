@@ -14,10 +14,12 @@
             
             <h:panelGrid columns="2">
                 <h:outputLabel value="Email: " />
-                <h:inputText value="#{loginController.email}" />
+                <h:inputText value="#{loginController.email}" 
+                             required="true" requiredMessage="Email é obrigatório"/>
                 
                 <h:outputLabel value="Senha: " />
-                <h:inputSecret value="#{loginController.senha}" />
+                <h:inputSecret value="#{loginController.senha}" 
+                               required="true" requiredMessage="Senha é obrigatório"/>
             </h:panelGrid>
             
             <h:commandButton value="Logar" action="#{loginController.logar}" />
