@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/commons/template.xhtml">
+    
+    <ui:define name="titulo">Clientes</ui:define>
+
+    <ui:define name="conteudo">
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Código: " />
+                <h:inputText value="#{clienteController.cliente.codigo}" 
+                                required="true" requiredMessage="Código é obrigatório">
+                    <f:validateLongRange minimum="1" />
+                </h:inputText>  
+
+                 <h:outputLabel value="Nome: " />
+                 <h:inputText value="#{clienteController.cliente.nome}" 
+                                required="true" requiredMessage="Nome é obrigatório"
+                                maxlength="100"/>
+               </h:panelGrid>
+            <h:commandButton value="Salvar" 
+                             action="#{clienteController.adicionar}" />
+
+                <h:commandButton value="Limpar" 
+                                 action="#{clienteController.limpar()}" />
+
+            <br/>
+            <br/>
+               
+        
+            <h:dataTable value="#{clienteController.clientes}" var="cliente"
+                         rendered="#{not empty clienteController.clientes}">
+                <h:column>
+                    <f:facet name="header">Código</f:facet>
+                    #{cliente.codigo}
+                </h:column>
+
+                 <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                    #{cliente.nome}
+                </h:column>
+
+                 <h:column>
+                    <f:facet name="header">Ações</f:facet>
+                    <h:commandButton value="Excluir" immediate="true"
+                                     action="#{clienteController.remover(cliente)}" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
