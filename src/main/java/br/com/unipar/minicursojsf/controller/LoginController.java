@@ -25,6 +25,11 @@ public class LoginController {
                         "Email ou senha inválido"));
         return "";
     }
+    
+    public String sair() {
+         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "login.xhtml?faces-redirect=true";
+    }
 
     public String getEmail() {
         return email;
