@@ -1,6 +1,8 @@
 package br.com.unipar.minicursojsf.model;
 
-public class Produto {
+import java.io.Serializable;
+
+public class Produto implements Serializable {
     
     private int codigo;
     private String nome;

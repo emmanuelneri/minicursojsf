@@ -7,6 +7,7 @@
     <ui:define name="titulo">Produtos</ui:define>
 
     <ui:define name="conteudo">
+        
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel value="Data: " /> 
@@ -22,11 +23,56 @@
                                 var="cliente" itemLabel="#{cliente.nome}" itemValue="#{cliente}"/>
                 </h:selectOneMenu>
             </h:panelGrid>
-        
+            
+            <h4>Item Pedido</h4>
+            <h:panelGrid columns="8" id="itemPedidoPanel">
+                <h:outputLabel value="Produto: " /> 
+                <h:selectOneMenu value="#{pedidoController.itemPedido.produto}"
+                                 converter="omnifaces.SelectItemsConverter" id="produto">
+                   <f:selectItem value="#{null}" itemLabel="Todos"/>
+                   <f:selectItems value="#{pedidoController.produtos}"
+                                var="produto" itemLabel="#{produto.nome}" itemValue="#{produto}"/>
+                   <f:ajax event="change" />
+                </h:selectOneMenu>
+                
+                <h:outputLabel value="Quantidade: " />
+                <h:inputText value="#{pedidoController.itemPedido.quatidade}" id="quantidade"                              
+                                required="true" requiredMessage="Quantidade é obrigatório">
+                    <f:validateLongRange minimum="1" />
+                </h:inputText> 
+                
+                <h:outputLabel value="Valor: " />
+                <h:inputText value="#{pedidoController.itemPedido.valor}"  id="valor"
+                                required="true" requiredMessage="Valor é obrigatório">
+                    <f:validateDoubleRange minimum="1" />
+                </h:inputText>
+                <h:commandButton value="Adicionar" action="#{pedidoController.adicionarItem}">
+                    <f:ajax event="change" execute="@this itemPedidoPanel" render="itemPedidoTable valorTotal" />
+                </h:commandButton>
+            </h:panelGrid>
+            
+            <h:dataTable value="#{pedidoController.pedido.itensPedido}" var="item" id="itemPedidoTable">
+                <h:column>
+                    <f:facet name="header">Produto</f:facet>
+                    #{item.produto.nome}
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">Quantidade</f:facet>
+                    #{item.quatidade}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Valor</f:facet>
+                    <h:outputText value="#{item.valor}">
+                        <f:convertNumber type="currency" locale="pt" currencySymbol="R$" />        
+                     </h:outputText>
+                </h:column>
+            </h:dataTable>
+            
             <br />
          
             <h:outputLabel value="Valor Total:" /> 
-            <h:outputText value="#{pedidoController.pedido.valorTotal}">
+            <h:outputText value="#{pedidoController.pedido.valorTotal}" id="valorTotal">
                 <f:convertNumber type="currency" locale="pt"
                                  currencySymbol="R$" />        
             </h:outputText>
