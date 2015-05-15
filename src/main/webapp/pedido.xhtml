@@ -67,6 +67,13 @@
                         <f:convertNumber type="currency" locale="pt" currencySymbol="R$" />        
                      </h:outputText>
                 </h:column>
+                <h:column>
+                    <f:facet name="header">Ações</f:facet>
+                    <h:commandButton value="Remover" action="#{pedidoController.removerItem(item)}"
+                                     immediate="true">
+                        <f:ajax event="change" execute="@this" render="itemPedidoTable valorTotal" />
+                    </h:commandButton>
+                </h:column>
             </h:dataTable>
             
             <br />

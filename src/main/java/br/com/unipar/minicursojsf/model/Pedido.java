@@ -18,6 +18,11 @@ public class Pedido implements Serializable {
         itensPedido.add(itemPedido);
         valorTotal = valorTotal.add(itemPedido.getValorTotal());
     }
+    
+     public void removerItem(ItemPedido itemPedido) {
+        itensPedido.remove(itemPedido);
+        valorTotal = valorTotal.subtract(itemPedido.getValorTotal());
+    }
 
     public Date getData() {
         return data;

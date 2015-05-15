@@ -32,6 +32,10 @@ public class PedidoController implements Serializable {
         pedido.adicionarItem(itemPedido);
         itemPedido = new ItemPedido();
     }
+    
+    public void removerItem(ItemPedido itemPedido) {
+        pedido.removerItem(itemPedido);
+    }
 
     public Pedido getPedido() {
         return pedido;
