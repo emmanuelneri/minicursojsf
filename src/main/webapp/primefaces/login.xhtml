@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Login - Mini Curso JSF</title>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <p:growl />
+            <p:panel header="Login">
+               <h:panelGrid columns="2">
+                    <h:outputLabel value="Email: " />
+                    <h:inputText value="#{loginController.email}" 
+                                 required="true" requiredMessage="Email é obrigatório"/>
+
+                    <h:outputLabel value="Senha: " />
+                    <h:inputSecret value="#{loginController.senha}" 
+                                   required="true" requiredMessage="Senha é obrigatório"/>
+                </h:panelGrid>
+                
+                <br />
+            
+                <p:commandButton value="Logar" action="#{loginController.logar}" ajax="false"/>
+                <p:commandButton value="Esqueci Minha Senha" immediate="true"  ajax="false"
+                                 action="esqueci-minha-senha.xhtml?faces-redirect=true" /> 
+            </p:panel>
+            
+        </h:form>
+        
+    </h:body>
+
+</html>
