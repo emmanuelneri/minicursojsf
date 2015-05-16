@@ -2,9 +2,12 @@ package br.com.unipar.minicursojsf.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Pedido implements Serializable {
     
@@ -42,5 +45,10 @@ public class Pedido implements Serializable {
 
     public List<ItemPedido> getItensPedido() {
         return itensPedido;
+    }
+    
+    public String getValorTotaFormatado() {
+        return new DecimalFormat("'R$ ' #,###,##0.00", 
+                new DecimalFormatSymbols(new Locale("pt", "pt_BR"))).format(valorTotal);
     }
 }
