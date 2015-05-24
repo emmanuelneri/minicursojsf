@@ -1,0 +1,11 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		template="/commons/template.xhtml">
+    
+    <ui:define name="titulo">Passagem de Parâmetro via GET em JSF</ui:define>
+
+    <ui:define name="conteudo">
+        #{passagemParametroGetController.parametro}
+    </ui:define>
+
+</ui:composition>
