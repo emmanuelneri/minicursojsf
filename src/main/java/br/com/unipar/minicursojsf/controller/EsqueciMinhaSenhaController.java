@@ -18,7 +18,9 @@ public class EsqueciMinhaSenhaController {
                 new FacesMessage(FacesMessage.SEVERITY_WARN, "Senha recuperada com sucesso!", 
                         "A nova senha foi enviado para o email: " + email));
         
-        return "";
+        email = null;
+        
+        return "esqueci-minha-senha";
     }
 
     public String getEmail() {
