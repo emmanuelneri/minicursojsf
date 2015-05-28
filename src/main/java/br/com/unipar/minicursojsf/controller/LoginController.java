@@ -11,7 +11,7 @@ import javax.faces.context.FacesContext;
 public class LoginController {
     
     private static final String EMAIL_ADMIN = "admin@gmail.com";
-    private static final String SENHA_ADMIN = "admin";
+    private static final String SENHA_ADMIN = "123";
     
     private String email;
     private String senha;
