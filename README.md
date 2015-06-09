@@ -1,5 +1,7 @@
 # Projeto base Mini Curso JSF - Unipar
 
+slides: http://www.slideshare.net/emmanuelnerisouza/desenvolvimento-baseado-em-componentes-com-jsf
+
 # Requisitos
 - Java 7
 - Tomcat 8.0.21
